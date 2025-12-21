@@ -1,0 +1,24 @@
+.nav {
+  margin: 20px 0;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+}
+
+.container-outer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+}
+.container-inner {
+  width: 80%;
+  margin: 0 auto;
+
+}
+
+body {
+  background-color: #000000;
+}
