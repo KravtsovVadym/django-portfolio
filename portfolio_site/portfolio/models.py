@@ -4,13 +4,10 @@ from django.db import models
 class Portfolio(models.Model):
     title = models.CharField("Projects", max_length=50, unique=True)
     description = models.CharField("Descriptions", max_length=255)
+
     image = models.ImageField(
         "Images",
-        upload_to="images/",
-        height_field="height_field",
-        width_field="width_field")
-    height_field = models.PositiveIntegerField() 
-    width_field = models.PositiveIntegerField()
+        upload_to="images/")
     links = models.URLField("Git Links", max_length=255)
     technologies = models.CharField("Technogies", max_length=255)
 
