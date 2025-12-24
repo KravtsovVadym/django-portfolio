@@ -1,17 +1,20 @@
 .nav {
   position: sticky;
-  top: 20px;
-  z-index: 100;
+  align-items: center;   
+  backdrop-filter: blur(100px);
+  top: 0px;
+  padding-inline: 10%;
   margin: 20px 0;
-  max-width: 80%;
+  max-width: 100%;
   margin: 0 auto;
+  z-index: 100;
 }
 
 .nav-link {
-  
   color: #949494;
   font-size: 0.9em;
   font-family: "Gill Sans", sans-serif;
+  
 }
 
 .nav-link:hover {
@@ -29,8 +32,17 @@
 }
 
 .custom-divider {
-  height: 1px;
-  background-color: #ffffff4d;
+  position: sticky;
+  top: 52px;
+  z-index: 99;
+  opacity: 0;
+  background: linear-gradient(90deg,rgb(75, 147, 255), rgb(148, 100, 236));
+  height: 0.5px;
+  transition: opacity 0.4s ease;
+}
+
+.custom-divider.visible {
+  opacity: 0.5;
 }
 
 .logo {
@@ -42,7 +54,6 @@
   position: relative;
   max-width: 100vw;
   margin: 0 auto;
-  padding: 20px;
 }
 .container-inner {
   width: 80%;
@@ -55,8 +66,16 @@ body {
   background-color: #000000;
 }
 
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 h1 {
-  font-size: 3.6em;
+  font-size: 3.4em;
   font-weight: 700;
   color: #ffffff;
 }
