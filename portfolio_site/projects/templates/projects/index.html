@@ -1,0 +1,69 @@
+{% extends "layout.html" %} {% load static %} {% block content %}
+
+<div class="container-inner">
+  <section id="Portfolio">
+    <div class="container-inner">
+      <div class="greeting-box greeting-text">Вітаю! 👋</div>
+      <h1>Я<span class="gradient-text"> програміст-початківець</span></h1>
+      <br />
+      <p>
+        Створюю різні додатки з чистим кодом та увагою да деталей.<br />Постійно
+        навчаюсь та розвиваюсь в світі технологій.
+      </p>
+    </div>
+  </section>
+  <section id="About">
+    <div class="container-inner">
+      <h1>Про мене</h1>
+      <div class="custom-divider-h1"></div>
+      <div class="content-about">
+        <div class="text-block">
+          <p>
+            A grid item can become a grid container. In the following example,
+            we extend the three-column grid with two positioned items seen
+            earlier, adding sub-items to the first grid item.
+          </p>
+          <p>
+            A grid item can become a grid container. In the following example,
+            we extend the three-column grid with two positioned items seen
+            earlier, adding sub-items to the first grid item.
+          </p>
+          <p>
+            A grid item can become a grid container. In the following example,
+            we extend the three-column grid with two positioned items seen
+            earlier, adding sub-items to the first grid item.
+          </p>
+        </div>
+        <div class="">
+            <img src="{% static 'images/photo.jpg' %}" class="image_block"/>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="Projects">
+    <div class="projects-grid">
+      {% for project in projects %}
+      <div class="project-card">
+        <img
+          src="{{ project.image.url }}"
+          alt="{{ project.title }}"
+          class="project-image"
+        />
+        <div class="project-content">
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+          {% if project.links %}
+          <a href="{{ project.links }}" target="_blank" class="btn btn-primary"
+            >View Project</a
+          >
+          {% endif %}
+        </div>
+      </div>
+      {% empty %}
+      <p>No projects yet</p>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+{% endblock content %}
