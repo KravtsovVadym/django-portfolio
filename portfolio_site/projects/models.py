@@ -1,29 +1,90 @@
 from django.db import models
+from django.conf import settings
 
-# Create your models here.
+class SkillIcon(models.Model):
+    name = models.CharField('Icon name', max_length=50)
+
+    icon = models.ImageField(
+        'Skill Icon',
+        upload_to='skills_icon/',
+        null=True,
+        blank=True
+    )
+
+    link = URLField(
+        'Skill Link',
+        max_length=255,
+        null=True,
+        blank=True
+    )
+
+    def __str__(self):
+        return f'Skill Icon: {self.name}'
+
+
+    def clean(self):
+        if not icon and not link:
+            raise ValidationErron({'icon': 'install the icon or link below'})
+
+
+class Skill(models.Model):
+    name = models.CharField('Skills', max_length=50)
+    level = models.PositiveSmallIntegerField(
+        default=0,
+        validators=[
+        MinValueValidator(0, message='the level connot be less than zero'),
+        MaxValueValidator(100, message='the level connot be more than one hundred')
+    ])
+
+    icon = models.OneToOneField(
+        SkillIcon,
+        related_name='skill',
+        null=True,
+        blank=True
+    )
+
+
+    def __str__(self):
+        return f'Skill: {name}'
+
 class Projects(models.Model):
-    title = models.CharField("Projects", max_length=50, unique=True)
-    description = models.CharField("Descriptions", max_length=255)
+    title = models.CharField(
+        'Projects',
+        max_length=50,
+        unique=True
+    )
+
+    description = models.CharField(
+        'Descriptions',
+        max_length=255
+    )
 
     image = models.ImageField(
-        "Projects Images",
-        upload_to="project/")
-    links = models.URLField("Git Links", max_length=255)
-    technologies = models.CharField("Technogies", max_length=255)
+        'Projects Images',
+        upload_to='project/')
+    link = models.URLField('Git Link', max_length=255)
+    technologies = models.CharField('Technogies', max_length=255)
 
     class Meta:
-        verbose_name = "Project"
-        verbose_name_plural = "Projects"
+        verbose_name = 'Project'
+        verbose_name_plural = 'Projects'
         
     def __str__(self):
         return self.title
 
 
 class Profile(models.Model):
-    autor_name = models.CharField("Autor name", max_length=50)
-    about = models.TextField("About")
-    image = models.ImageField("Profile Image", upload_to="profile/")
+    autor = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='profile')
+
+    about = models.TextField('About')
+    skills = models.ManyToManyField(Skill, related_name='profile')
+    image = models.ImageField('Profile Image', upload_to='profile/')
+
 
     class Meta:
-        verbose_name = "Profile"
-        verbose_name_plural = "Profiles"
+        verbose_name = 'Profile'
+        verbose_name_plural = 'Profiles'
+
