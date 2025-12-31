@@ -1,5 +1,12 @@
 from django.contrib import admin
-from .models import Projects
-# Register your models here.
+from .models import Projects, Profile
 
-admin.site.register(Projects)  
+
+@admin.register(Projects)
+class PrijectAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    pass
