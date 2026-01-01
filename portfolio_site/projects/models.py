@@ -29,6 +29,7 @@ class SkillIcon(models.Model):
 
 class Skill(models.Model):
     name = models.CharField('Skills', max_length=50)
+
     level = models.PositiveSmallIntegerField(
         default=0,
         validators=[
@@ -38,7 +39,8 @@ class Skill(models.Model):
 
     icon = models.OneToOneField(
         SkillIcon,
-        related_name='skill',
+        on_delete=models.SET_NULL,
+        related_name='skills',
         null=True,
         blank=True
     )
@@ -46,6 +48,7 @@ class Skill(models.Model):
 
     def __str__(self):
         return f'Skill: {name}'
+
 
 class Projects(models.Model):
     title = models.CharField(
@@ -61,9 +64,18 @@ class Projects(models.Model):
 
     image = models.ImageField(
         'Projects Images',
-        upload_to='project/')
-    link = models.URLField('Git Link', max_length=255)
-    technologies = models.CharField('Technogies', max_length=255)
+        upload_to='project/'
+    )
+
+    link = models.URLField(
+        'Git Link',
+        max_length=255
+    )
+
+    technologies = models.CharField(
+        'Technogies',
+        max_length=255
+    )
 
     class Meta:
         verbose_name = 'Project'
@@ -77,14 +89,31 @@ class Profile(models.Model):
     autor = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        related_name='profile')
+        related_name='profile'
+    )
 
     about = models.TextField('About')
-    skills = models.ManyToManyField(Skill, related_name='profile')
-    image = models.ImageField('Profile Image', upload_to='profile/')
+
+    skills = models.ManyToManyField(
+        Skill,
+        related_name='profiles'
+    )
+
+    image = models.ImageField(
+        'Profile Image',
+        upload_to='profile/'
+        )
 
 
     class Meta:
         verbose_name = 'Profile'
         verbose_name_plural = 'Profiles'
 
+
+    def __str__(self):
+        full_name = self.author.get_full_name()
+
+        if full_name:
+            return f'{self.author.username}: {full_name}'
+
+        return self.author.username()
