@@ -9,9 +9,6 @@ def index(request):
         'projects',
         'skills__icon'
     ).first()
-    print('='*10)
-    print(profile.skills.count())
-    print('='*10)
 
     title = profile.author
     return render(request, 'projects/index.html', {'profile': profile, 'title': f'Protfolio {title}'})
