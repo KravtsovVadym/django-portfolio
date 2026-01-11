@@ -65,6 +65,11 @@ class Profile(models.Model):
         Skill,
         related_name='profiles'
     )
+    learning_technologies = models.TextField(
+        'learning_technologies',
+        blank=True,
+    )
+
 
     image = models.ImageField(
         'Profile Image',
