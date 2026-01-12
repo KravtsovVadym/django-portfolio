@@ -9,7 +9,6 @@
       <p>
         I develop various applications with clean code and attention to detail.<br />constantly
         learning and growing in the world of technology.
-
       </p>
     </div>
   </section>
@@ -38,7 +37,6 @@
           <i class="bi bi-lightning-fill icon-box"></i>
           <p class="about-item__text">Persistence</p>
         </div>
-
       </div>
     </div>
   </section> <br> <br>
@@ -48,56 +46,53 @@
       <h1>Technical Skills</h1>
       <div class="custom-divider-h1"></div><br>
       <p>Tools and technologies I use.</p>
-<div class="container-base skills">
-  {% for skill in profile.skills.all %}
-  <div class="skills-item">
-    <div class="skill-header">
-      {% if skill.icon %}
-      <img src="{{ skill.icon.icon.url }}" alt="{{ skill.name }}">
-      {% endif %}
-      <p class="skill-name">{{ skill.name }}</p>
-    </div>
-    <div class="skill-progress">
-      <div class="progress-bar">
-        <div class="progress-fill" style="width: {{ skill.level }}%"></div>
-      </div>
-      <span class="skill-level">{{ skill.level }}%</span>
-    </div>
-  </div>
-  {% endfor %}
-</div><br>
-      <div class="skill-lern-item">
-        <p>asdasd</p>
-      </div>
-    </div>
-
-
-
-</div>
-<section id="Projects">
-  <div class="container-inner">
-    <h1>My Projects</h1>
-    <div class="custom-divider-h1"></div>
-    <div class="projects-grid">
-      {% for project in profile.projects.all %}
-      <div class="project-card">
-        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image" />
-        <div class="project-content">
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
-          <p><strong>Technologies:</strong> {{ project.technologies }}</p>
-          {% if project.links %}
-          <a href="{{ project.links }}" target="_blank" class="btn btn-primary">View Project</a>
-          {% endif %}
+      <div class="container-base skills">
+        {% for skill in profile.skills.all %}
+        <div class="skills-item">
+          <div class="skill-header">
+            {% if skill.icon %}
+            <img src="{{ skill.icon.icon.url }}" alt="{{ skill.name }}">
+            {% endif %}
+            <p class="skill-name">{{ skill.name }}</p>
+          </div>
+          <div class="skill-progress">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: {{ skill.level }}%"></div>
+            </div>
+            <span class="skill-level">{{ skill.level }}%</span>
+          </div>
         </div>
+        {% endfor %}
+      </div><br><br>
+      <div class="skill-lern-item">
+        <p>{{ profile.learning_technologies|linebreaks }}</p>
       </div>
-      {% empty %}
-      <p>No projects yet</p>
-      {% endfor %}
     </div>
-  </div>
-</section>
+  </section>
 
+  <section id="Projects">
+    <div class="container-inner">
+      <h1>My Projects</h1>
+      <div class="custom-divider-h1"></div>
+      <div class="projects-grid">
+        {% for project in profile.projects.all %}
+        <div class="project-card">
+          <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image" />
+          <div class="project-content">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <p><strong>Technologies:</strong> {{ project.technologies }}</p>
+            {% if project.links %}
+            <a href="{{ project.links }}" target="_blank" class="btn btn-primary">View Project</a>
+            {% endif %}
+          </div>
+        </div>
+        {% empty %}
+        <p>No projects yet</p>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 </div>
 
 {% endblock content %}
