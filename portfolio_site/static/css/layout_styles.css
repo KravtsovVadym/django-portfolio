@@ -140,7 +140,6 @@ p {
 }
 
 
-
 .footer-links {
   display: flex;
   flex-direction: column;
@@ -161,8 +160,9 @@ p {
 
 .social-links {
   display: flex;
+  justify-content: center;
   gap: 15px;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 .social-icon {
