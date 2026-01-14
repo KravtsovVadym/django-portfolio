@@ -64,6 +64,11 @@
 
 }
 
+.container-about {
+  max-width: 500px;
+  margin: 0 auto;
+
+}
 
 body {
   background-color: #000000;
