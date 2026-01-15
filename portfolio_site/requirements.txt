@@ -1,0 +1,18 @@
+# requirements.txt
+
+# Core Framework
+Django==6.0  # main web framework
+
+# Configuration
+python-decouple==3.8  # .env file management
+
+# Database
+psycopg2-binary==2.9.11  # PostgreSQL driver
+dj-database-url==3.1.0  # database URL parser
+
+# Media & Files
+pillow==12.1.0  # image processing
+
+# Production Server
+gunicorn==23.0.0  # WSGI server
+whitenoise==6.11.0  # static files serving

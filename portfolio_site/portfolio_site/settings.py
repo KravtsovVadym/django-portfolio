@@ -1,6 +1,6 @@
 from pathlib import Path
-from decouple import config
-
+from decouple import config, Csv
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,7 +14,10 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
-
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv(), default='')
+# Add development hosts only if DEBUG is True
+if config('DEBUG', default=False, cast=bool):
+    ALLOWED_HOSTS.extend(['127.0.0.1', 'localhost', 'host.docker.internal'])
 ALLOWED_HOSTS = []
 
 # User model
@@ -34,6 +37,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -65,16 +69,27 @@ WSGI_APPLICATION = 'portfolio_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio',
-        'USER': 'vadym',
-        'PASSWORD': config('DB_PASS'),
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+DATABASE_URL = config('DATABASE_URL', default=None)
+
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.config(
+                default=DATABASE_URL,
+                conn_max_age=600,
+                conn_health_checks=True 
+            )
+        }
+else:
+    DATABASES = {   
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': config('NAME'),
+            'USER': config('USER'),
+            'PASSWORD': config('PASSWORD'),
+            'HOST': config('HOST'),
+            'PORT': '5432',
+        }
     }
-}
 
 
 # Password validation
@@ -116,6 +131,9 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+# WriteNoise for compression and caching
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

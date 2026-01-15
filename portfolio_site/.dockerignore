@@ -1,0 +1,17 @@
+.git/
+.gitignore
+
+__pycache__
+*.pyc
+
+.venv/
+venv/
+env/
+
+staticfiles/
+
+Makefile
+Dockerfile
+.dockerignore
+.env/
+

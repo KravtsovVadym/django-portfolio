@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.core.validators import MinValueValidator, MaxValueValidator
-
+from PIL import Image
 class SkillIcon(models.Model):
     name = models.CharField('Icon name', max_length=50)
 
@@ -133,7 +133,6 @@ class Project(models.Model):
         Profile,
         on_delete=models.CASCADE,
         related_name='projects')
-
 
     class Meta:
         verbose_name = 'Project'
