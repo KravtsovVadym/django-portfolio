@@ -1,4 +1,0 @@
-Django==6.0
-python-decouple==3.8    #reads file .env andenviriment variables
-psycopg2-binary==2.9.11
-pillow==12.1.0
