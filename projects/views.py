@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from projects.models import Profile
 
-
 def index(request):
     profile = Profile.objects.select_related(
         'author'
@@ -9,6 +8,13 @@ def index(request):
         'projects',
         'skills__icon'
     ).first()
-
-    title = profile.author
-    return render(request, 'projects/index.html', {'profile': profile, 'title': f'Protfolio {title}'})
+    
+    if profile and profile.author:
+        title = profile.author
+    else:
+        title = "Guest" 
+    
+    return render(request, 'projects/index.html', {
+        'profile': profile, 
+        'title': f'Portfolio {title}'
+    })
