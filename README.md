@@ -2,9 +2,8 @@
 
 ### This is a portfolio training project to practice skills with the Django framework.
 
-![Portfolio Screenshot 1](screenshots/portfolio_main.png)
 
-![Portfolio Screenshot 2](screenshots/portfolio_projects.png)
+| ![Main Page](screenshots/portfolio_main.png) | ![Projects](screenshots/portfolio_projects.png) |
 
 ### This project implements the following:
 - Profile model with user information and skill management
