@@ -2,7 +2,8 @@
 
 ### This is a portfolio training project to practice skills with the Django framework.
 
-
+| Main Page | Projects Section |
+|:---------:|:----------------:|
 | ![Main Page](screenshots/portfolio_main.png) | ![Projects](screenshots/portfolio_projects.png) |
 
 ### This project implements the following:
