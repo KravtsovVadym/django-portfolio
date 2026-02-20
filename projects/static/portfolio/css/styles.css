@@ -1,11 +1,14 @@
+/* Main portfolio section - centered flex container */
 #Portfolio {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
+  margin-top: 0;
   position: relative;
+  bottom: 50px;
 }
 
+/* About section - centered with bottom margin */
 #About {
   display: flex;
   justify-content: center;
@@ -13,6 +16,7 @@
   margin-bottom: 100px;
 }
 
+/* Skills section - centered with larger bottom margin */
 #Skills {
   display: flex;
   justify-content: center;
@@ -22,6 +26,7 @@
 
 }
 
+/* Projects section - block layout with padding */
 #Projects {
   min-height: auto;
   margin-top: 0;
@@ -29,6 +34,7 @@
   padding: 120px 0 60px 0;
 }
 
+/* Grid container for project cards */
 .projects-grid {
   display: grid;
   grid-template-rows: 1fr;
@@ -37,6 +43,7 @@
   justify-items: center;
 }
 
+/* Desktop layout for projects grid */
 @media (min-width: 769px) {
   .projects-grid {
     grid-template-columns: 1fr;
@@ -45,6 +52,7 @@
   }
 }
 
+/* Individual project card styling */
 .project-card {
   display: flex;
   flex-direction: column;
@@ -57,6 +65,7 @@
   max-width: 550px;
 }
 
+/* Desktop layout for project cards */
 @media (min-width: 769px) {
   .project-card {
     flex-direction: row;
@@ -64,11 +73,13 @@
   }
 }
 
+/* Hover effect for project cards */
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(87, 138, 247, 0.2);
 }
 
+/* Project image styling */
 .project-image {
   width: 100%;
   height: 300px;
@@ -78,6 +89,7 @@
   flex-shrink: 0;
 }
 
+/* Desktop layout for project images */
 @media (min-width: 769px) {
   .project-image {
     width: 400px;
@@ -86,18 +98,21 @@
   }
 }
 
+/* Hover effect for project images */
 .project-image:hover {
   transform: scale(1.05);
 }
 
 
 
+/* Expand icon styling */
 .icon-expand {
   color: white;
   font-size: 40px;
   cursor: pointer;
 }
 
+/* Modal overlay styling */
 .modal {
   display: none;
   position: fixed;
@@ -109,6 +124,7 @@
   background: rgba(0, 0, 0, 0.9);
 }
 
+/* Modal content container */
 .modal-content {
   margin: auto;
   display: block;
@@ -122,6 +138,7 @@
   transform: translate(-50%, -50%);
 }
 
+/* Modal close button */
 .modal-close {
   position: absolute;
   top: 20px;
@@ -131,27 +148,30 @@
   cursor: pointer;
 }
 
+/* Modal close button hover effect */
 .modal-close:hover {
   color: #bbb;
 }
 
+/* Project content container */
 .project-content {
   padding: 20px;
   color: white;
 }
 
+/* Project title styling */
 .project-content h3 {
   color: white;
   font-size: 1.5em;
   margin-bottom: 15px;
 }
 
+/* Project description text */
 .project-content p {
   color: #949494;
   margin-bottom: 20px;
   line-height: 1.6;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   word-wrap: break-word;
@@ -159,6 +179,7 @@
   text-align: center;
 }
 
+/* Primary button styling */
 .project-content .btn-primary {
   background: linear-gradient(90deg, rgba(75, 147, 255, 0.187), rgba(148, 100, 236, 0.185));
   border: none;
@@ -167,12 +188,14 @@
   transition: all 0.3s ease;
 }
 
+/* Primary button hover effect */
 .project-content .btn-primary:hover {
   transform: scale(1.05);
   background: linear-gradient(90deg, rgba(75, 147, 255, 0.373), rgba(148, 100, 236, 0.334));
   box-shadow: 0 5px 15px rgba(87, 138, 247, 0.4);
 }
 
+/* Profile image styling */
 .profile-image {
   width: 100%;
   max-width: 500px;
@@ -184,6 +207,7 @@
   filter: brightness(0.7);
 }
 
+/* Greeting box container */
 .greeting-box {
   display: inline-block;
   background: #007BFF24;
@@ -193,6 +217,7 @@
   margin-bottom: 40px;
 }
 
+/* Greeting text styling */
 .greeting-text {
   color: #578af7;
   font-size: 0.8em;
@@ -200,13 +225,14 @@
   margin: 20px;
 }
 
+/* Gradient text effect */
 .gradient-text {
   background: linear-gradient(45deg, rgb(165, 117, 255) 60%, rgb(75, 147, 255));
-  -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Custom divider line */
 .custom-divider-h1 {
   background: linear-gradient(90deg, rgb(75, 147, 255), rgb(148, 100, 236));
   height: 5px;
@@ -215,6 +241,7 @@
   border-radius: 20px;
 }
 
+/* Base container grid layout */
 .container-base {
   display: grid;
   grid-template-columns: 1fr;
@@ -225,6 +252,7 @@
   align-items: center;
 }
 
+/* Tablet layout for base container */
 @media (min-width: 769px) {
   .container-base {
     grid-template-columns: repeat(1, 1fr);
@@ -236,6 +264,7 @@
   }
 }
 
+/* Desktop layout for base container */
 @media (min-width: 1100px) {
   .container-base {
     grid-template-columns: repeat(6, 1fr);
@@ -247,17 +276,20 @@
 }
 
 /* Left photo about section */
+/* Left text section in about */
 .about-item:nth-child(1) {
   grid-column: span 3;
   text-align: left;
   
 }
 /* Photo section */
+/* Photo section in about */
 .about-item:nth-child(2) {
   grid-column: span 3;
   margin-bottom: 8%;
 }
 /* Section under the photo */
+/* Info cards under photo */
 .about-item:nth-child(n+3) {
   grid-column: span 2;
   border: 1px solid #77767b33;
@@ -268,12 +300,14 @@
   padding: 20px;
 }
 
+/* Text styling for about items */
 .about-item__text {
   color: white;
   padding-top: 15px;
   text-align: center;
 }
 
+/* Icon container styling */
 .icon-box {
   color: rgb(87, 138, 247);
   font-size: 30px;
@@ -284,6 +318,7 @@
 }
 
 /* Skills section */
+/* Individual skill item card */
 .skills-item {
   display: flex;
   flex-direction: column;
@@ -299,17 +334,20 @@
   justify-content: center;
 }
 
+/* Skill header with icon and name */
 .skill-header {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+/* Skill icon sizing */
 .skills-item img {
   width: 40px;
   height: 40px;
 }
 
+/* Skill name text */
 .skill-name {
   margin: 0;
   color: white;
@@ -317,6 +355,7 @@
   font-size: 1em;
 }
 
+/* Progress bar container */
 .skill-progress {
   display: flex;
   flex-direction: column;
@@ -324,6 +363,7 @@
   width: 100%;
 }
 
+/* Progress bar background */
 .progress-bar {
   width: 100%;
   height: 8px;
@@ -332,6 +372,7 @@
   overflow: hidden;
 }
 
+/* Progress bar fill */
 .progress-fill {
   height: 100%;
   background: linear-gradient(90deg, rgb(75, 147, 255), rgb(148, 100, 236));
@@ -339,6 +380,7 @@
   transition: width 0.3s ease;
 }
 
+/* Skill level percentage text */
 .skill-level {
   text-align: center;
   color: #578af7;
@@ -346,6 +388,7 @@
   font-weight: 500;
 }
 
+/* Learning skill item card */
 .skill-lern-item {
   display: flex;
   justify-content: center;
@@ -360,15 +403,17 @@
   padding: 20px; 
 }
 
+/* Scroll down indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 40px;
+  bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
   animation: bounce 2s infinite;
   cursor: pointer;
 }
 
+/* Scroll indicator icon */
 .scroll-indicator i {
   font-size: 2em;
   color: #578af7;
@@ -376,10 +421,12 @@
   transition: opacity 0.3s ease;
 }
 
+/* Scroll indicator hover effect */
 .scroll-indicator:hover i {
   opacity: 1;
 }
 
+/* Bounce animation keyframes */
 @keyframes bounce {
 
   0%,
@@ -399,12 +446,14 @@
   }
 }
 
+/* Hidden state for scroll indicator */
 .scroll-indicator.hidden {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
+/* Light theme scroll indicator color */
 .light-theme .scroll-indicator i {
   color: #4b73e8;
 }
