@@ -357,6 +357,8 @@
   margin: 0 auto;
   width: 320px;
   height: auto;
+  text-align: center; 
+  padding: 20px; 
 }
 
 .scroll-indicator {
