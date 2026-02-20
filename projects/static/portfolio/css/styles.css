@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   margin: 0;
   position: relative;
 }
@@ -11,7 +10,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   margin-bottom: 100px;
 }
 
@@ -82,7 +80,7 @@
 
 @media (min-width: 769px) {
   .project-image {
-    width: 400px; 
+    width: 400px;
     height: 100%;
     min-height: 300px;
   }
@@ -249,16 +247,18 @@
   }
 }
 
+/* Left photo about section */
 .about-item:nth-child(1) {
   grid-column: span 3;
   text-align: left;
+  
 }
-
+/* Photo section */
 .about-item:nth-child(2) {
   grid-column: span 3;
   margin-bottom: 8%;
 }
-
+/* Section under the photo */
 .about-item:nth-child(n+3) {
   grid-column: span 2;
   border: 1px solid #77767b33;
@@ -284,6 +284,7 @@
   border-radius: 10px;
 }
 
+/* Skills section */
 .skills-item {
   display: flex;
   flex-direction: column;
@@ -294,7 +295,7 @@
   height: 140px;
   width: 250px;
   padding: 20px;
-  margin: 0 auto;
+  margin: auto auto;
   gap: 15px;
   justify-content: center;
 }
@@ -356,9 +357,8 @@
   margin: 0 auto;
   width: 320px;
   height: auto;
-  text-align: center; 
-  padding: 20px; 
-  
+}
+
 .scroll-indicator {
   position: absolute;
   bottom: 40px;
