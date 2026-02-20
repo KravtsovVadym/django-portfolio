@@ -1,5 +1,5 @@
 /* Navigation bar  */
-.nav {
+.navbar {
   position: sticky;
   display: flex;
   justify-content: space-between;
@@ -228,6 +228,7 @@ p {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(87, 138, 247)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+
 /* Theme toggle button  */
 .theme-toggle {
   background: #77767b19;
@@ -241,7 +242,7 @@ p {
   cursor: pointer;
   margin-right: 20px;
   transition: all 0.3s ease;
-  color: #578af7;
+  color: rgb(87, 138, 247);
 }
 
 .theme-toggle:hover {
@@ -260,8 +261,15 @@ body.light-theme {
 .light-theme .skill-name,
 .light-theme .project-content h3,
 .light-theme .footer-section h3 {
-  color: #063485;
+  color: rgba(12, 55, 128, 0.845);
 }
+
+
+/* Navbar toggler */
+.light-theme .navbar-toggler {
+  border-color: #4644499b;
+}
+
 
 
 .light-theme p,
@@ -271,13 +279,10 @@ body.light-theme {
 .light-theme .footer-links a {
   color: #4c4c4c;
 }
-/* Navbar toggler */
-.light-theme .navbar-toggler {
-  border-color: #4644499b;
-}
 
 .light-theme .profile-image {
   filter: brightness(1);
+  box-shadow: 5px 5px 4px rgba(120, 120, 120, 0.476);
 }
 
 .light-theme .footer-content {
